@@ -43,15 +43,15 @@ namespace Garage
             }
         }
 
-       
+
         public void Example()
         {
             garage<vehicle> allVehciles = new garage<vehicle>(50);
 
             char choice = 'y';
-            while (choice=='y')
+            while (choice == 'y')
             {
-               
+
                 Console.WriteLine("1)-Car.");
                 Console.WriteLine("2)-Bus.");
                 Console.WriteLine("3)-Boat.");
@@ -79,21 +79,21 @@ namespace Garage
                             Console.WriteLine("Enter The Cars Type:");
                             string Type = Console.ReadLine();
                             allVehciles.Add(new Car(Number, Color, Wheels, Parked, Type));
-                            
 
-                     
-                           
-                           
-                            
+
+
+
+
+
                         }
-                        
+
                         Console.WriteLine("Do You Want to Add more Vehicles? (Y/N)");
 
                         char choice1 = Convert.ToChar(Console.ReadLine());
 
                         if (choice1 == 'n')
                             choice = 'n';
-                       
+
                         break;
 
 
@@ -116,9 +116,9 @@ namespace Garage
                             Console.WriteLine("Enter The bus Seats:");
                             int Numofseat = int.Parse(Console.ReadLine());
                             allVehciles.Add(new Bus(Number, Color, Wheels, Parked, Numofseat));
-                           
 
-                           
+
+
                         }
                         Console.WriteLine("Do You Want to Add more Vehicles? (Y/N)");
 
@@ -150,7 +150,7 @@ namespace Garage
                             double Length = Convert.ToDouble(Console.ReadLine());
 
                             allVehciles.Add(new Boat(Number, Color, Wheels, Parked, Length));
-                            
+
                         }
                         Console.WriteLine("Do You Want to Add more Vehicles? (Y/N)");
 
@@ -177,9 +177,9 @@ namespace Garage
                             Console.WriteLine("Enter The Number Of Engine:");
                             int Engine = int.Parse(Console.ReadLine());
                             allVehciles.Add(new Airplane(Number, Color, Wheels, Parked, Engine));
-                           
 
-                           
+
+
                         }
                         Console.WriteLine("Do You Want to Add more Vehicles? (Y/N)");
 
@@ -206,9 +206,9 @@ namespace Garage
                             Console.WriteLine("Enter The CylinderVolume");
                             double Cvolume = Convert.ToDouble(Console.ReadLine());
                             allVehciles.Add(new Motorcycle(Number, Color, Wheels, Parked, Cvolume));
-                            
 
-                           
+
+
                         }
                         Console.WriteLine("Do You Want to Add more Vehicles? (Y/N)");
 
@@ -225,18 +225,18 @@ namespace Garage
                 }
             }
             //var garagefilter = allVehciles.Where(x =>x.park==true);
-            
-            
-            
 
-            //    foreach (vehicle a in garagefilter)
-            //    {
 
-            //         Console.WriteLine(a.State());
-            //    }
-            
+
+
+            foreach (vehicle a in  allVehciles)
+            {
+
+                Console.WriteLine(a.State());
+            }
+
             Console.ReadLine();
-            Console.WriteLine("To Unpark a Vehicle from garrage Press U. Else Press Any Key.");
+            Console.WriteLine("To Unpark a Vehicle From The Garrage Press U. Else Press Any Key.");
             char f = Convert.ToChar(Console.ReadLine());
 
             if (f == 'u')
@@ -244,34 +244,30 @@ namespace Garage
                 Console.WriteLine("enter the vehicle registration number you want to unpark from garrage:");
                 string v = Console.ReadLine();
 
-
                 allVehciles.Delete(v);
 
+            }
+
+            foreach (vehicle a in allVehciles)
+            {
+                if (a != null)
+                    Console.WriteLine(a.State());
 
             }
-                foreach (vehicle a in allVehciles)
-                {
-                   
-                   Console.WriteLine(a.State()); 
+
+            //var garagefilter = allVehciles.Where(x => x.Regname == v);
+            //Console.WriteLine("after deletion num of vehicles present in the garrage");
+            //foreach(vehicle a in  garagefilter)
+            //{
+
+            //    Console.WriteLine(a.State());
+            //}
+            Console.ReadLine();
 
 
 
 
-               }
-
-                //var garagefilter = allVehciles.Where(x => x.Regname == v);
-                //Console.WriteLine("after deletion num of vehicles present in the garrage");
-                //foreach(vehicle a in  garagefilter)
-                //{
-
-                //    Console.WriteLine(a.State());
-                //}
-                Console.ReadLine();
-            
-
-
-
-          //  MainMenu();
+            MainMenu();
             //garagefilter.Last();
         }
 

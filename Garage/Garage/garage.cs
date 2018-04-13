@@ -32,9 +32,9 @@ namespace Garage
         {
             for (int i = 0; i < count; i++)
             {
-                if(collection[count].Regname == v)
+                if(collection[i].Regname == v)
                     
-                    collection[count] = null;
+                    collection[i] = null;
             }
             
         }
