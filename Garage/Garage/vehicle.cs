@@ -9,6 +9,7 @@ namespace Garage
     public class vehicle
     {
         private string regnum; string color; int numOfwheels; bool park;
+       
         public vehicle(string regnum, string color, int numOfwheels,bool park)
         {
             Regname = regnum;
@@ -27,6 +28,7 @@ namespace Garage
             //{
             //    Park = value;
             //}
+            
         }
 
         public string Regname
