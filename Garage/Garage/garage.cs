@@ -19,40 +19,53 @@ namespace Garage
             collection = new T[maxcapacity];
 
         }
-            public void Add(T input)
+        public void Prak(T input)
+        {
+            if (cap > count)
             {
-                if (cap > count)
-                {
-                    collection[count] = input;
-                    count += 1;
-                }
+                collection[count] = input;
+                count += 1;
             }
+        }
 
-        public void Delete(string v)
+        public void UnPark(string v)
+        {
+
+            
+            for (int i = 0; i < count; i++)
+            {
+                if (collection[i].Regname == v)
+                {
+                    collection[i] = null;
+                    
+                 
+                }
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < count; i++)
             {
-                if(collection[count].Regname == v)
-                    
-                    collection[count] = null;
-            }
-            
-        }
-
-
-
-            public IEnumerator<T> GetEnumerator()
-            {
-                for (int i = 0; i < count; i++)
-                {
-                    yield return collection[i];
-                }
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-             {
-                return GetEnumerator();
+                yield return collection[i];
             }
         }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
+}
+

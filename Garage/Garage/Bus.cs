@@ -29,7 +29,7 @@ namespace Garage
 
         public override string State()
         {
-            return base.State() + $",  {Numofseats}";
+            return base.State() + $", And It Contains {Numofseats} Seats.";
         }
     }
 }

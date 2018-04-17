@@ -28,7 +28,7 @@ namespace Garage
 
         public override string State()
         {
-            return base.State() + $" ,  {Fueltype}";
+            return base.State() + $" , And It Works On {Fueltype}.";
         }
 
     }

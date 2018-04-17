@@ -27,7 +27,7 @@ namespace Garage
 
         public override string State()
         {
-            return base.State() + $",  {Length}" ;
+            return base.State() + $", And It's Length is {Length} Meter." ;
         }
 
     }
