@@ -35,6 +35,8 @@ namespace Garage
                 if(collection[i].Regname == v)
                     
                     collection[i] = null;
+                else
+                    Console.WriteLine("not found! try Again.");
             }
             
         }

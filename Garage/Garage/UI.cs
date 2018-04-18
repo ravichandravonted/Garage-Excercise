@@ -254,7 +254,8 @@ namespace Garage
                     Console.WriteLine(a.State());
 
             }
-
+             
+            
             //var garagefilter = allVehciles.Where(x => x.Regname == v);
             //Console.WriteLine("after deletion num of vehicles present in the garrage");
             //foreach(vehicle a in  garagefilter)
@@ -263,6 +264,8 @@ namespace Garage
             //    Console.WriteLine(a.State());
             //}
             Console.ReadLine();
+
+            
 
 
 
