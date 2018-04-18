@@ -17,9 +17,11 @@ namespace Garage
             while (keeprunning)
             {
                 Console.Clear();
-                Console.WriteLine("Enter num for choice");
+
                 Console.WriteLine("1)-To Create a New Garage");
                 Console.WriteLine("0)-Quit");
+                Console.WriteLine("*****************************");
+                Console.WriteLine("Enter num for choice");
 
                 string input = Console.ReadLine();
 
@@ -48,7 +50,9 @@ namespace Garage
             Console.Clear();
             Console.WriteLine("How Many Vehicles Do You Want To Add:");
             int number;
+
             bool choose = int.TryParse(Console.ReadLine(), out number);
+
 
             if (choose)
             {
@@ -65,6 +69,7 @@ namespace Garage
                     Console.WriteLine("3)-Boat.");
                     Console.WriteLine("4)-Plane.");
                     Console.WriteLine("5)-Motocycle.");
+                    Console.WriteLine("***************");
                     Console.WriteLine("Enter Your Choice.");
                     string type = Console.ReadLine();
                     switch (type)
@@ -481,14 +486,7 @@ namespace Garage
                     }
                 }
                 //var garagefilter = allVehciles.Where(x =>x.park==true);
-                Console.Clear();
 
-                foreach (vehicle a in allVehciles)
-                {
-
-                    Console.WriteLine(a.State());
-
-                }
 
 
                 //    foreach (vehicle a in garagefilter)
@@ -497,8 +495,15 @@ namespace Garage
                 //         Console.WriteLine(a.State());
                 //    }
 
-                Console.WriteLine();
+                Console.Clear();
 
+                foreach (vehicle a in allVehciles)
+                {
+
+                    Console.WriteLine(a.State());
+
+                }
+                Console.WriteLine("**********************************************************************************");
                 while (true)
                 {
 
@@ -509,10 +514,88 @@ namespace Garage
                     {
                         Console.WriteLine("enter the vehicle registration number you want to unpark from garrage:");
                         string input = Console.ReadLine();
-                        
-                       
-                        allVehciles.UnPark(input);
 
+
+
+                        allVehciles.UnPark(input);
+                        continue;
+
+
+                    }
+
+                    else
+                        Console.Clear();
+                    foreach (vehicle a in allVehciles)
+                    {
+                        if (a != null)
+                        {
+
+
+                            Console.WriteLine(a.State());
+                            Console.WriteLine("**********************************************************************************");
+                        }
+                    }
+                    break;
+
+                }
+
+                //
+                Console.WriteLine();
+
+
+
+                while (true)
+                {
+                    Console.Clear();
+                    foreach (vehicle a in allVehciles)
+                    {
+                        if (a != null)
+                            Console.WriteLine(a.State());
+
+                    }
+
+                    Console.WriteLine();
+                    Console.WriteLine("**********************************************************************************");
+                    Console.WriteLine("To Find a Vehicle in the garrage Press F. Else Press Any Key.");
+                    string f = Console.ReadLine();
+                    if (f == "f")
+                    {
+                        Console.WriteLine("Enter The Vehicle Type:  ");
+                        string Vtype = Console.ReadLine();
+                        Console.WriteLine("Enter The Regisration Number:");
+                        string Rnumber = Console.ReadLine();
+
+
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        //try
+                        //{
+                        bool found = false;
+                        foreach (vehicle a in allVehciles.Where(x => x.GetType().Name == Vtype && x.Regname == Rnumber))
+                        {
+                            if (a.GetType().Name == Vtype && a.Regname == Rnumber)
+                            {
+                                Console.WriteLine(a.State());
+                                Console.ReadLine();
+                                found = true;
+                            }
+                            //else if (a.GetType().Name != Vtype || a.Regname != Rnumber)
+                            //{
+                            //    found = false;
+                            //}
+                        }
+                        //}
+                        //catch(Exception e)
+                        //{
+                        //Console.WriteLine("no more items in the collection list");
+                        //}
+                        if (!found)
+
+                        {
+                            Console.WriteLine("Not Found! Try Again.");
+
+                            Console.ReadLine();
+                        }
                         continue;
                     }
 
@@ -526,44 +609,6 @@ namespace Garage
                     }
                     break;
 
-                }
-
-                //
-                Console.WriteLine();
-
-                bool found=true;
-                while(found)
-                {
-                    Console.WriteLine("To Find a Vehicle Enter Its Type:  ");
-                    string Vtype = Console.ReadLine();
-                    Console.WriteLine("Enter The Regisration Number:");
-                    string Rnumber = Console.ReadLine();
-
-
-                    Console.WriteLine();
-                    Console.WriteLine();
-
-
-
-
-                    foreach (vehicle a in allVehciles.Where(x => x.GetType().Name == Vtype && x.Regname == Rnumber))
-                    {
-                        if (a.GetType().Name == Vtype && a.Regname == Rnumber)
-                        {
-                            Console.WriteLine(a.State());
-                            Console.ReadLine();
-                            found=false;
-                        }
-
-                        else
-                        {
-                            Console.WriteLine("Not Found! Try Again.");
-                            Console.ReadLine();
-                            continue;
-                        }
-
-
-                    }
 
                 }
 

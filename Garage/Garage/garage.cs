@@ -31,26 +31,20 @@ namespace Garage
         public void UnPark(string v)
         {
 
-            
+
             for (int i = 0; i < count; i++)
             {
+                if(collection[i] != null)
                 if (collection[i].Regname == v)
                 {
                     collection[i] = null;
-                    
-                 
+
                 }
 
             }
+
+
         }
-
-
-
-
-
-
-
-
 
 
 
