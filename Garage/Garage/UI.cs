@@ -50,6 +50,7 @@ namespace Garage
             Console.Clear();
             Console.WriteLine("How Many Vehicles Do You Want To Add:");
             int number;
+            
 
             bool choose = int.TryParse(Console.ReadLine(), out number);
 
@@ -58,7 +59,12 @@ namespace Garage
             {
                 garage<vehicle> allVehciles = new garage<vehicle>(number);
 
-
+                if (number == 0)
+                {
+                    //Console.WriteLine("Incorrect Input!");
+                    //Console.ReadLine();
+                    MainMenu();
+                }
 
                 string choice = "+";
                 while (choice == "+")
@@ -573,6 +579,7 @@ namespace Garage
                         bool found = false;
                         foreach (vehicle a in allVehciles.Where(x => x.GetType().Name == Vtype && x.Regname == Rnumber))
                         {
+
                             if (a.GetType().Name == Vtype && a.Regname == Rnumber)
                             {
                                 Console.WriteLine(a.State());

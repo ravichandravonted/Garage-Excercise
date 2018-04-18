@@ -12,8 +12,9 @@ namespace Garage
 
         private T[] collection;
         int cap, count;
+       
         public garage(int maxcapacity)
-        {
+        {           
             cap = maxcapacity;
             count = 0;
             collection = new T[maxcapacity];
@@ -26,6 +27,7 @@ namespace Garage
                 collection[count] = input;
                 count += 1;
             }
+
         }
 
         public void UnPark(string v)
@@ -34,12 +36,12 @@ namespace Garage
 
             for (int i = 0; i < count; i++)
             {
-                if(collection[i] != null)
-                if (collection[i].Regname == v)
-                {
-                    collection[i] = null;
+                if (collection[i] != null)
+                    if (collection[i].Regname == v)
+                    {
+                        collection[i] = null;
 
-                }
+                    }
 
             }
 
@@ -52,7 +54,8 @@ namespace Garage
         {
             for (int i = 0; i < count; i++)
             {
-                yield return collection[i];
+                if (collection[i] != null)
+                    yield return collection[i];
             }
         }
 
